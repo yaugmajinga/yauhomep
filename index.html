@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewpot" content="width=device-width, initial-scale=1" />
+<head>
+<title>.::Accordion::.</title>
+
+<style>
+body{margin: 0; 
+	padding: 0;
+} 
+*{box-sizing:border-box}
+.accordion{
+	background-color: #777;
+	color: #fff;
+	cursor: pointer;
+	width: 210px;
+	border: none;
+	outline: none;
+	font-size: 20px;
+	text-align: left;
+	padding: 8px;
+	margin-left: 12px;
+}
+.active, .accordion:hover{
+	background-color: #555;
+	border: none;
+}
+.accordion:after{
+	content: '\2261';
+	float: right;
+	font-weight: normal;
+	color: #fff;
+	font-size:30px;
+}
+.active:after{
+	content: "\0445";
+}
+.panel{
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	background-color: #4caf50;
+	transition: max-height 3s ease-out;
+	margin: -60px 0 0 0;
+}
+h2{text-align:center; padding-top:50px;}
+#loader{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:auto;
+	width:80px;
+	height:80px;
+	z-index:1;
+	border:8px solid #555;
+	border-radius: 50%;
+	border-top:8px solid #4acf50;
+	width:60px;
+	height:60px;
+	-webkit-animation: spin 0.8s linear infinite;
+	animation: spin 0.8s linear infinite;
+}
+@-webkit-keyframes sping{
+	0%{-webkit-transform: rotate(0deg);}
+	100%{-webkit-transform: rotate(360deg);}
+}
+@keyframes spin{
+	0%{transform: rotate(0deg);}
+	100%{transform: rotate(360deg);}
+}
+#navBar{width:500px; height:35px; background-color:#777; margin:-95px 0 0 230px;}
+li.tab{
+	position:relative;
+	float:left;
+	list-style-type:none;
+	width:115px;
+	height:35px;
+	background-color:rgb(120, 100, 0);
+	text-align:center;
+}
+a.l_tab{text-decoration:none;
+}
+
+</style>
+</head>
+<body onload="myFunction()">
+<div id="loader"></div>
+<div id="pageB" style="display:none">
+<h1 style="text-align:center">Welcome to Ya'u Garba WebDev Majinga</h1>
+<button class="accordion">Click me and see</button>
+<div class="panel">
+<h2> About Web Design.</h2>
+<div id="navBar">
+<ul>
+<li class="tab"><a class="l_tab" href="file:///C:/Users/yfuhmljo/Desktop/lam/index.html">Home</a>
+<li class="tab"><a class="l_tab" href="#">About us</a>
+<li class="tab"><a class="l_tab" href="#">Quick links</a>
+<li class="tab"><a class="l_tab" href="#">News</a>
+</ul>
+</div>
+<p style="font-family: tahoma; font-size: 25px; text-align: justify; line-height: 40px; padding: 8px; width: 500px; margin:auto; padding-top:50px;">
+Web design and development is a raining technology that helps in making things easier in our lives today. Web design is a 
+process of designing web pages and linking one page to another by using HTML and CSS. Web Development on the other hand deals 
+with programming the responses that enable the web pages to communicate with the users that view them in different browsers. 
+It is the best to be good in special hand coding to have full control over the codes. To know how it works join us in 
+Shalom Computer Center Salka.
+<b><br /><i>By Ya'u Garba</i></b></p>
+<p> <a href="javascript:window.print()" style="margin-left:500px; width:150px; height:auto; padding:5px; border:none; border-radius:4px; background-color:#fff; color:#000; font-weight:bold; cursor:pointer; text-decoration:none">Print</a></p>
+</div>
+
+</div>
+
+<script>
+var myVar;
+function myFunction(){
+myVar = setTimeout(showPage, 5000);
+function showPage(){
+document.getElementById("loader").style.display = "none";
+document.getElementById("pageB").style.display = "block";
+}
+}
+</script>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i=0; i<acc.length; i++){
+acc[i].addEventListener("click", function(){
+this.classList.toggle("active");
+var panel = this.nextElementSibling;
+if(panel.style.maxHeight){
+panel.style.maxHeight = null;
+}else{
+panel.style.maxHeight = panel.scrollHeight + "px";
+}
+});
+}
+</script>
+
+
+</script>
+</body>
+</html>
